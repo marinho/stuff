@@ -1,8 +1,17 @@
-html, body{
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif
+@import "https://fonts.googleapis.com/css?family=Ubuntu+Mono";
+
+html{
+  background-color: #eee;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
-span.active {
-  background-color: gray;
+body {
+  width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.center {
+  text-align: center;
 }
