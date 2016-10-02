@@ -14,6 +14,7 @@ const webpackConfig = ghDeploy.getWebpackConfigModule(); // the settings that ar
 const GIT_REMOTE_NAME = 'origin';
 const COMMIT_MESSAGE = 'Updates';
 const GH_REPO_NAME = ghDeploy.getRepoName(GIT_REMOTE_NAME);
+console.log(1111, GH_REPO_NAME); // XXX
 
 const METADATA = webpackMerge(webpackConfig.metadata, {
   /**
