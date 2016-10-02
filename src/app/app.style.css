@@ -1,17 +1,17 @@
-@import "https://fonts.googleapis.com/css?family=Ubuntu+Mono";
-
-html{
-  background-color: #eee;
-  font-family: 'Ubuntu Mono', monospace;
-}
-
-body {
-  width: 800px;
-  margin: 30px auto;
+app {
+  display: block;
   padding: 30px;
-  background-color: #fff;
 }
 
-.center {
-  text-align: center;
+.header {
+  display: block;
+}
+
+.main {
+  margin: 30px 0;
+  display: block;
+}
+
+.footer {
+  display: block;
 }
