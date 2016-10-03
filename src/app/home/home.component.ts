@@ -1,39 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import { ArticlesService } from './articles.service';
+import { Article } from './articles.model';
+
 
 @Component({
-  // The selector is what angular internally uses
-  // for `document.querySelectorAll(selector)` in our index.html
-  // where, in this case, selector is the string 'home'
-  selector: 'home',  // <home></home>
-  // We need to tell Angular's Dependency Injection which providers are in our app.
+  selector: 'home',
   providers: [
     Title
   ],
-  // Our list of styles in our component. We may add more to compose many styles together
-  styleUrls: [ './home.style.css' ],
-  // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './home.template.html'
+  templateUrl: './home.template.html',
+  styleUrls: [ './home.style.css' ]
 })
-export class Home {
+export class Home implements OnInit, OnDestroy {
   // Set our default values
-  localState = { value: '' };
-  // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  private sub: Subscription;
+  private articles: Array<Article>;
 
+  // TypeScript public modifiers
+  constructor(public appState: AppState,
+              public title: Title,
+              private articlesService: ArticlesService) {
   }
 
   ngOnInit() {
-    console.log('hello `Home` component');
-    // this.title.getData().subscribe(data => this.data = data);
+    this.sub = this.articlesService.getArticles()
+      .subscribe((resp: any) => this.articles = resp.articles);
+    // this.title.setData().subscribe(data => this.data = data);
+  }
+
+  ngOnDestroy() {
+    if (this.sub) this.sub.unsubscribe();
   }
 
   submitState(value: string) {
     console.log('submitState', value);
     this.appState.set('value', value);
-    this.localState.value = '';
   }
 }

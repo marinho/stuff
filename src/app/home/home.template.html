@@ -1,0 +1,6 @@
+<ul *ngIf="articles" class="articles">
+    <li *ngFor="let article of articles">
+        <h2>{{article.title}}</h2>
+        {{article.timeSincePublished}}
+    </li>
+</ul>

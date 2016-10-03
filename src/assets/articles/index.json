@@ -1,0 +1,10 @@
+{
+    "articles": [
+        {
+            "url": "/assets/articles/first.md",
+            "slug": "first",
+            "title": "First article, testing the idea",
+            "published": "2016-10-02"
+        }
+    ]
+}

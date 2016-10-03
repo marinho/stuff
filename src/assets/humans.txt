@@ -3,7 +3,7 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
+  Marinho Brandao <https://github.com/marinho>
 
 # THANKS
 
